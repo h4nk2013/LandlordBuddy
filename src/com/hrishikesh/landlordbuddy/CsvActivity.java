@@ -12,54 +12,48 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 public class CsvActivity extends Activity {
-	private Button details;
-	private Button tenants;
 	private SessionManager session;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_csv);
-		tenants = (Button) findViewById(R.id.tenantExport);
-		details = (Button) findViewById(R.id.detailsExport);
 		
-		details.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				FragmentManager fm = getFragmentManager();
-				FragmentTransaction ft = fm.beginTransaction();
-				TenantDetailImportFragment tenantDetailImportFragment = new TenantDetailImportFragment();
-				ft.add(R.id.csvLayout, tenantDetailImportFragment);
-				ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-				ft.addToBackStack(null);
-				ft.commit();
-			}
-		});
+		FragmentManager fm = getFragmentManager();
+		FragmentTransaction ft = fm.beginTransaction();
+		ExportOptionFragment exportOptionFragment = new ExportOptionFragment();
+		ft.add(R.id.csvLayout, exportOptionFragment);
+		ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+		ft.addToBackStack(null);
+		ft.commit();
 		
-		tenants.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				FragmentManager fm = getFragmentManager();
-				FragmentTransaction ft = fm.beginTransaction();
-				TenantImportFragment tenantImportFragment = new TenantImportFragment();
-				ft.add(R.id.csvLayout, tenantImportFragment);
-				ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-				ft.addToBackStack(null);
-				ft.commit();
-			}
-		});
-		
-		tenants = (Button) findViewById(R.id.tenantExport);
-		details = (Button) findViewById(R.id.detailsExport);
 		
 		// Session Manager
         session = new SessionManager(getApplicationContext());
         session.checkLogin();
+        
+        
 	}
+	
+	public void importDetails(){
+		FragmentManager fm = getFragmentManager();
+		FragmentTransaction ft = fm.beginTransaction();
+		TenantDetailImportFragment tenantDetailImportFragment = new TenantDetailImportFragment();
+		ft.replace(R.id.csvLayout, tenantDetailImportFragment);
+		ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+		ft.addToBackStack(null);
+		ft.commit();
+	}
+	public void importTenant(){
+		FragmentManager fm = getFragmentManager();
+		FragmentTransaction ft = fm.beginTransaction();
+		TenantImportFragment tenantImportFragment = new TenantImportFragment();
+		ft.replace(R.id.csvLayout, tenantImportFragment);
+		ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+		ft.addToBackStack(null);
+		ft.commit();
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
