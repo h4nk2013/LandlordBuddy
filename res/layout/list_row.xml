@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="5dip" >
+    
+	<!-- Title Of Song-->
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#040404"
+        android:typeface="sans" 
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:text="name"/>
+
+	<!-- Artist Name -->
+
+	<!-- Rightend Duration -->
+    <TextView
+        android:id="@+id/dueDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/name"
+        android:gravity="right"
+        android:layout_marginRight="5dip"
+        android:textSize="12sp"
+        android:textColor="#10bcc9"
+        android:textStyle="bold"
+        android:text="duedate"/>
+
+    <TextView
+        android:id="@+id/paid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/name"
+        android:layout_below="@+id/name"
+        android:textColor="#343434"
+        android:textSize="12sp"
+        android:text="paid" />
+
+    <TextView
+        android:id="@+id/due"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/paid"
+        android:layout_alignBottom="@+id/paid"
+        android:layout_marginLeft="36dp"
+        android:layout_toRightOf="@+id/paid"
+        android:text="due"
+        android:textColor="#343434"
+        android:textSize="12sp" />
+
+</RelativeLayout>
