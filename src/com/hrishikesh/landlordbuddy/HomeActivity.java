@@ -111,6 +111,8 @@ public class HomeActivity extends Activity {
 		int itemId = item.getItemId();
 		if (itemId == R.id.action_export_app_data) {
 			Toast.makeText(this, "Backup Created", Toast.LENGTH_SHORT).show();
+			Intent export = new Intent(HomeActivity.this,CsvActivity.class);
+			startActivity(export);
 			return true;
 		} else if (itemId == R.id.action_about) {
 			Intent aboutIntent = new Intent(HomeActivity.this, AboutActivity.class);

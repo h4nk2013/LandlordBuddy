@@ -88,6 +88,7 @@ public class TenantDataSource {
 		    tenantModel.setAddress((c.getString(c.getColumnIndex(DatabaseHelper.KEY_ADDRESS))));
 		    tenantModel.setEmail((c.getString(c.getColumnIndex(DatabaseHelper.KEY_EMAIL))));
 		    tenantModel.setPhone((c.getString(c.getColumnIndex(DatabaseHelper.KEY_PHONE))));
+		    tenantModel.setDeposit(Integer.valueOf(c.getString(c.getColumnIndex(DatabaseHelper.KEY_DEPOSIT))));
             tenantModels.add(tenantModel);
             c.moveToNext();
         }

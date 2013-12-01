@@ -43,33 +43,35 @@
     <string name="welcome_message">Hello Hrishikesh!</string>
     <string name="subtitle_text">Managing Tenants made easy</string>
     <string name="plus_instruction">Click on \'+\' to start</string>
-	<string name="name_text">Name:</string>
-	<string name="address_text">Address:</string>
-	<string name="phone_text">Phone:</string>
-	<string name="email_text">Email:</string>
-	<string name="amount_due_text">Amount Due:</string>
-	<string name="amount_paid_text">Amount Paid:</string>
-	<string name="notify_button_text">Notify</string>
-	<string name="delete_button_text">Delete</string>
-	<string name="google_maps">Google Maps</string>
-	<string name="month">Month:</string>
-	<string name="month_prompt">Select Month:</string>
-	<string name="select_year">Year:</string>
-	<string-array name="months_array">
-	    <item>January</item>
-	    <item>February</item>
-	    <item>March</item>
-	    <item>April</item>
-	    <item>May</item>
-	    <item>June</item>
-	    <item>July</item>
-	    <item>August</item>
-	    <item>September</item>
-	    <item>October</item>
-	    <item>November</item>
-	    <item>December</item>
-	</string-array>
-	<string name="rent_due">Rent Due:</string>
-    
-    
+    <string name="name_text">Name:</string>
+    <string name="address_text">Address:</string>
+    <string name="phone_text">Phone:</string>
+    <string name="email_text">Email:</string>
+    <string name="amount_due_text">Amount Due:</string>
+    <string name="amount_paid_text">Amount Paid:</string>
+    <string name="notify_button_text">Notify</string>
+    <string name="delete_button_text">Delete</string>
+    <string name="google_maps">Google Maps</string>
+    <string name="month">Month:</string>
+    <string name="month_prompt">Select Month:</string>
+    <string name="select_year">Year:</string>
+
+    <string-array name="months_array">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+
+    <string name="rent_due">Rent Due:</string>
+    <string name="title_activity_csv">CsvActivity</string>
+
 </resources>

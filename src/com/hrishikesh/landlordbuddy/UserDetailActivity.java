@@ -241,6 +241,8 @@ public class UserDetailActivity extends Activity implements OnClickListener{
 			return true;
 		} else if (itemId == R.id.action_export_app_data) {
 			Toast.makeText(this, "Backup Created", Toast.LENGTH_SHORT).show();
+			Intent export = new Intent(UserDetailActivity.this,CsvActivity.class);
+			startActivity(export);
 			return true;
 		} else if (itemId == R.id.action_about) {
 			Intent aboutIntent = new Intent(UserDetailActivity.this, AboutActivity.class);

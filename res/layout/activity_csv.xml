@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:gravity="center_vertical"
+    tools:context=".CsvActivity" 
+    android:id="@+id/csvLayout">
+
+    <Button
+        android:id="@+id/tenantExport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Export Tenants Information" />
+
+    <Button
+        android:id="@+id/detailsExport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Export Tenant Details Information" />
+
+</LinearLayout>
