@@ -71,7 +71,27 @@
         <item>December</item>
     </string-array>
 
+    <string name="tenant_name">Tenant Name</string>
+    <string name="tenant_address">Tenant Postal Address</string>
+    <string name="tenant_phone">Phone Number</string>
+    <string name="tenant_email">E-mail Address</string>
+    <string name="tenant_deposit">Deposit</string>
+    <string name="export_tenant">Export Tenants Information</string>
+    <string name="export_details">Export Tenant Details Information</string>
+    <string name="export_db">Export Application Database</string>
     <string name="rent_due">Rent Due:</string>
     <string name="title_activity_csv">CsvActivity</string>
-
+    <string name="table_year">Year</string>
+    <string name="table_month">Month</string>
+    <string name="table_Rent">Rent</string>
+    <string name="table_paid">Paid</string>
+    <string name="table_due">Due</string>
+    <string name="database_message">Successfully Imported SQLite Database</string>
+    <string name="tenantexport_message">Successfully Imported Tenants Information into csv from SQLite Database</string>
+    <string name="detailsexport_message">Successfully Imported Tenant Details into csv from SQLite Database</string>
+    <string name="title_activity_records">RecordsActivity</string>
+	<string name="histogram">Histogram</string>
+	<string name="piechart">Pie Chart</string>
+	<string name="action_records">Record Charts</string>
+	<string name="contacts">Contact Information</string>
 </resources>

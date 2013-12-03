@@ -24,15 +24,17 @@ public class ListViewArrayAdapter extends ArrayAdapter<TenantModel> {
 		View rowView = inflater.inflate(R.layout.list_row, parent, false);
 		TenantModel tenantModel = mListModel.get(position);
 		
-		TextView name = (TextView) rowView.findViewById(R.id.name);
-		TextView due = (TextView) rowView.findViewById(R.id.due);
-		TextView paid = (TextView) rowView.findViewById(R.id.paid);
-		TextView dueDate = (TextView) rowView.findViewById(R.id.dueDate);
+		TextView name = (TextView) rowView.findViewById(R.id.listName);
+		TextView deposit = (TextView) rowView.findViewById(R.id.listDeposit);
+		TextView address = (TextView) rowView.findViewById(R.id.listAddress);
+		TextView email = (TextView) rowView.findViewById(R.id.listEmail);
+		TextView phone = (TextView) rowView.findViewById(R.id.listPhone);
 		
 		name.setText(tenantModel.getName());
-		due.setText("Due by " + tenantModel.getPhone());
-		paid.setText("Paid: " + tenantModel.getAddress());
-		dueDate.setText("Due: " + tenantModel.getEmail());
+		deposit.setText("Deposit: $" + tenantModel.getDeposit());
+		address.setText(tenantModel.getAddress());
+		email.setText(tenantModel.getEmail());
+		phone.setText(tenantModel.getPhone());
 		
 		return rowView;
 	}

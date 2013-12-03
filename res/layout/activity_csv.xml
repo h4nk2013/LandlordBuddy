@@ -3,10 +3,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 	android:orientation="vertical"
-	android:gravity="center_vertical"
-    tools:context=".CsvActivity" 
-    android:id="@+id/csvLayout">
+    tools:context=".CsvActivity">
+	
+    <LinearLayout
+	    android:orientation="vertical"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content">
+		<Button
+	        android:id="@+id/tenantExport"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/export_tenant" />
+	
+	    <Button
+	        android:id="@+id/detailsExport"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/export_details" />
+	    
+	    <Button
+	        android:id="@+id/dbExport"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/export_db" />
+	</LinearLayout>
 
-    
+	<LinearLayout
+	    android:id="@+id/csvLayout"
+	    android:orientation="vertical"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:gravity="center">
+	    
+	</LinearLayout>
 
 </LinearLayout>

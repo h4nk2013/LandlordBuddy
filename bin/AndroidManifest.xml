@@ -20,7 +20,7 @@
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <!--
          The following two permissions are not required to use
-	     Google Maps Android API v2, but are recommended.
+	     Google Maps Android API v2, but are recommended.
     -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -45,7 +45,8 @@
 
         <activity
             android:name="com.hrishikesh.landlordbuddy.LandlordBuddyMainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:configChanges="orientation|screenLayout" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -54,31 +55,43 @@
         </activity>
         <activity
             android:name="com.hrishikesh.landlordbuddy.HomeActivity"
-            android:label="@string/title_activity_home" >
+            android:label="@string/title_activity_home" 
+            android:configChanges="orientation|screenLayout">
         </activity>
         <activity
             android:name="com.hrishikesh.landlordbuddy.AddNewEntry"
-            android:label="@string/title_activity_add_new_entry" >
+            android:label="@string/title_activity_add_new_entry"
+            android:configChanges="orientation|screenLayout" >
         </activity>
         <activity
             android:name="com.hrishikesh.landlordbuddy.UserDetailActivity"
-            android:label="@string/title_activity_user_detail" >
+            android:label="@string/title_activity_user_detail"
+            android:configChanges="orientation|screenLayout" >
         </activity>
         <activity
             android:name="com.hrishikesh.landlordbuddy.StartupHomeActivity"
-            android:label="@string/title_activity_statup_home" >
+            android:label="@string/title_activity_statup_home" 
+            android:configChanges="orientation|screenLayout">
         </activity>
         <activity
             android:name="com.hrishikesh.landlordbuddy.UserInfoActivity"
-            android:label="@string/title_activity_user_info" >
+            android:label="@string/title_activity_user_info"
+            android:configChanges="orientation|screenLayout" >
         </activity>
         <activity
             android:name="com.hrishikesh.landlordbuddy.AboutActivity"
-            android:label="@string/title_activity_about" >
+            android:label="@string/title_activity_about" 
+            android:configChanges="orientation|screenLayout">
         </activity>
         <activity
             android:name="com.hrishikesh.landlordbuddy.CsvActivity"
-            android:label="@string/title_activity_csv" >
+            android:label="@string/title_activity_csv" 
+            android:configChanges="orientation|screenLayout">
+        </activity>
+        <activity
+            android:name="com.hrishikesh.landlordbuddy.RecordsActivity"
+            android:label="@string/title_activity_records"
+            android:configChanges="orientation|screenLayout" >
         </activity>
     </application>
 

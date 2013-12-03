@@ -13,7 +13,7 @@ public class TenantDataSource {
 	// Database fields
 	private SQLiteDatabase database;
 	private DatabaseHelper databaseHelper;
-	private String[] allColumns = {DatabaseHelper.KEY_NAME, DatabaseHelper.KEY_ADDRESS, DatabaseHelper.KEY_PHONE, DatabaseHelper.KEY_EMAIL};
+	private String[] allColumns = {DatabaseHelper.KEY_NAME, DatabaseHelper.KEY_ADDRESS, DatabaseHelper.KEY_PHONE, DatabaseHelper.KEY_EMAIL, DatabaseHelper.KEY_DEPOSIT};
 	public TenantDataSource(Context context) {
 		// TODO Auto-generated constructor stub
 		databaseHelper = new DatabaseHelper(context);
@@ -66,11 +66,11 @@ public class TenantDataSource {
 			tenantModel.setId(Integer.valueOf(c.getString(c.getColumnIndex(DatabaseHelper.KEY_ID))));
 		    tenantModel.setName((c.getString(c.getColumnIndex(DatabaseHelper.KEY_NAME))));
 		    tenantModel.setAddress((c.getString(c.getColumnIndex(DatabaseHelper.KEY_ADDRESS))));
-		    tenantModel.setEmail((c.getString(c.getColumnIndex(DatabaseHelper.KEY_EMAIL))));
-		    tenantModel.setPhone((c.getString(c.getColumnIndex(DatabaseHelper.KEY_PHONE))));	
+		    tenantModel.setPhone((c.getString(c.getColumnIndex(DatabaseHelper.KEY_PHONE))));
+		    tenantModel.setEmail((c.getString(c.getColumnIndex(DatabaseHelper.KEY_EMAIL))));	
 		    tenantModel.setDeposit(Integer.valueOf(c.getString(c.getColumnIndex(DatabaseHelper.KEY_DEPOSIT))));
 	    }
-	        
+	    c.close();    
 	    
 	    return tenantModel;
 	}
@@ -86,12 +86,14 @@ public class TenantDataSource {
 			tenantModel.setId(Integer.valueOf(c.getString(c.getColumnIndex(DatabaseHelper.KEY_ID))));
 		    tenantModel.setName((c.getString(c.getColumnIndex(DatabaseHelper.KEY_NAME))));
 		    tenantModel.setAddress((c.getString(c.getColumnIndex(DatabaseHelper.KEY_ADDRESS))));
-		    tenantModel.setEmail((c.getString(c.getColumnIndex(DatabaseHelper.KEY_EMAIL))));
 		    tenantModel.setPhone((c.getString(c.getColumnIndex(DatabaseHelper.KEY_PHONE))));
+		    tenantModel.setEmail((c.getString(c.getColumnIndex(DatabaseHelper.KEY_EMAIL))));
 		    tenantModel.setDeposit(Integer.valueOf(c.getString(c.getColumnIndex(DatabaseHelper.KEY_DEPOSIT))));
             tenantModels.add(tenantModel);
             c.moveToNext();
         }
+		
+		c.close();
 		
 		return tenantModels;
 	}
@@ -114,15 +116,4 @@ public class TenantDataSource {
 		
 		return tenantModel2;
 	}
-	
-//	private TenantModel cursorToTenant(Cursor c, long id){
-//		TenantModel tenantModel = new TenantModel();
-//		tenantModel.setId((int) id);
-//	    tenantModel.setName((c.getString(c.getColumnIndex(DatabaseHelper.KEY_NAME))));
-//	    tenantModel.setAddress((c.getString(c.getColumnIndex(DatabaseHelper.KEY_ADDRESS))));
-//	    tenantModel.setEmail((c.getString(c.getColumnIndex(DatabaseHelper.KEY_EMAIL))));
-//	    tenantModel.setPhone((c.getString(c.getColumnIndex(DatabaseHelper.KEY_PHONE))));
-//		
-//		return tenantModel;
-//	}
 }

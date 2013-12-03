@@ -109,5 +109,38 @@ public class TenantDetailDataSource {
 		
 		return tenantDetailModel;
 	}
+
+	public List<TenantDetailModel> generateList() {
+		// TODO Auto-generated method stub
+		List<TenantDetailModel> tenantModels = new ArrayList<TenantDetailModel>();
+		SQLiteDatabase db = databaseHelper.getWritableDatabase();
+		Cursor  c = db.rawQuery("SELECT * FROM " + DatabaseHelper.TABLE_TENANTDETAILS ,null);
+		
+		c.moveToFirst();
+		while (c.isAfterLast() == false) {
+			String rent = c.getString(c.getColumnIndex(DatabaseHelper.KEY_RENT));
+		    String paid = c.getString(c.getColumnIndex(DatabaseHelper.KEY_PAID));
+		    String due = c.getString(c.getColumnIndex(DatabaseHelper.KEY_DUE));
+			TenantDetailModel tenantDetailModel = new TenantDetailModel();
+			tenantDetailModel.setId(Integer.valueOf(c.getString(c.getColumnIndex(DatabaseHelper.KEY_ID))));
+		    tenantDetailModel.setYear((c.getString(c.getColumnIndex(DatabaseHelper.KEY_YEAR))));
+		    tenantDetailModel.setMonth((c.getString(c.getColumnIndex(DatabaseHelper.KEY_MONTH))));
+		    tenantDetailModel.setPaid(Integer.valueOf(rent));
+		    tenantDetailModel.setRent(Integer.valueOf(paid));
+		    tenantDetailModel.setDue(Integer.valueOf(due));
+            tenantModels.add(tenantDetailModel);
+            c.moveToNext();
+        }
+		
+		return tenantModels;
+	}
+	
+	public void deleteDetail(long tenant_id) {
+	    SQLiteDatabase db = databaseHelper.getWritableDatabase();
+	    db.delete(DatabaseHelper.TABLE_TENANTDETAILS, DatabaseHelper.KEY_ID + " = ?",
+	            new String[] { String.valueOf(tenant_id) });
+	}
+
+	
 	
 }

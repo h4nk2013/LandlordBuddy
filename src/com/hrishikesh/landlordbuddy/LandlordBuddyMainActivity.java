@@ -1,11 +1,15 @@
 package com.hrishikesh.landlordbuddy;
 
+import java.util.HashMap;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -25,7 +29,7 @@ public class LandlordBuddyMainActivity extends Activity {
     SessionManager session;
     private Button mContinueButton;
     private EditText mUserName, mEmailAddress;
-	
+	private String valid_email;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +42,28 @@ public class LandlordBuddyMainActivity extends Activity {
 		
 		// Session Manager
         session = new SessionManager(getApplicationContext());
-		
+        mEmailAddress.addTextChangedListener(new TextWatcher() {
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before,
+					int count) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,
+					int after) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void afterTextChanged(Editable s) {
+				// TODO Auto-generated method stub
+				Is_Valid_Email(mEmailAddress);  // pass your EditText Obj here.
+			}
+		});
 		mContinueButton.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -55,7 +80,7 @@ public class LandlordBuddyMainActivity extends Activity {
                         session.createLoginSession(username, emailAddress);
                          
                         // Staring MainActivity
-                        Intent i = new Intent(getApplicationContext(), StartupHomeActivity.class);
+                        Intent i = new Intent(getApplicationContext(), HomeActivity.class);
                         startActivity(i);                         
                     }else{
                     	 // fullname / emailAddress doesn't match
@@ -114,7 +139,24 @@ public class LandlordBuddyMainActivity extends Activity {
 	        }
 	    }
 	}
-	
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		
+		HashMap<String, String> user = session.getUserDetails();
+		
+		String name = user.get(SessionManager.KEY_NAME);
+		String email = user.get(SessionManager.KEY_EMAIL);
+		
+		if(mUserName.getText().toString().equals(name)){
+			if(mEmailAddress.getText().toString().equals(email)){
+				Intent i = new Intent(getApplicationContext(), HomeActivity.class);
+                startActivity(i);  
+			}
+		}
+		
+		super.onResume();
+	}
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item){
 		int itemId = item.getItemId();
@@ -129,5 +171,20 @@ public class LandlordBuddyMainActivity extends Activity {
 			return super.onOptionsItemSelected(item);
 		}
 	}
+	public void Is_Valid_Email(EditText edt) {
+		if (edt.getText().toString() == null) {
+			edt.setError("Invalid Email Address");
+			valid_email = null;
+		} else if (isEmailValid(edt.getText().toString()) == false) {
+			edt.setError("Invalid Email Address");
+			valid_email = null;
+		} else {
+			valid_email = edt.getText().toString();
+		}
+	}
+
+	boolean isEmailValid(CharSequence email) {
+		return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+	} // end of email matcher
 
 }

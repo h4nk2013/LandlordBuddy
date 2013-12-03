@@ -13,9 +13,24 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 public class JsonParser extends AsyncTask<String, Void, String> {
+	
+	private Context mContext;
+	public JsonParser(Context context) {
+		// TODO Auto-generated constructor stub
+		mContext = context;
+	}
+	
 	public Context context;
 	public ProgressDialog dialog;
 	
+	@Override
+	protected void onPreExecute() {
+		// TODO Auto-generated method stub
+        dialog = new ProgressDialog(mContext);
+  		dialog.setMessage("Loading...");
+  		dialog.show();
+		super.onPreExecute();
+	}
 
 	@Override
 	protected String doInBackground(String...params) {
@@ -56,6 +71,7 @@ public class JsonParser extends AsyncTask<String, Void, String> {
 	@Override
 	protected void onPostExecute(String result) {
 		// TODO Auto-generated method stub
+		dialog.dismiss();
 		super.onPostExecute(result);
 	}
 
